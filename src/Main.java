@@ -12,11 +12,103 @@ public class Main {
         //logischeoperatoren();
         //wecker(25, 67);
         //strings();
-        split();
+        //split();
+        templateApp();
+    }
+
+    public static void templateApp() {
+        String csv = "Yuriy;Beck;Am Wallgraben;9;52428;Juelich";
+
+        String template = "Guten Tag <NACHNAME>," +
+                "\ndie Rechnung wurde an folgende Adresse versadt:" +
+                "\n<STRASSE> <NR>" +
+                "\n<PLZ> <STADT>" +
+                "\n\nViele Grüße" +
+                "\n Euer Team";
+
+        String[] csvList = csv.split(";");
+        //Option #1
+        String mail = template.replace("<NACHNAME>", csvList[1]);
+        mail = mail.replace("<STRASSE>", csvList[2]);
+        mail = mail.replace("<NR>", csvList[3]);
+        mail = mail.replace("<PLZ>", csvList[4]);
+        mail = mail.replace("<STADT>", csvList[5]);
+        System.out.println(mail);
+
+        //Option #2
+        String template2 = "Guten Tag %s," +
+                "\ndie Rechnung wurde an folgende Adresse versadt:" +
+                "\n%s %s" +
+                "\n%s %s" +
+                "\n\nViele Grüße" +
+                "\nEuer Team";
+
+        mail = String.
+                format(template2, csvList[1],csvList[2],csvList[3],csvList[4],csvList[5]);
+        System.out.println(mail);
     }
 
     public static void split() {
+        String name = "Yuriy Beck";
+        String[] liste = name.split(" ");
+        System.out.println(liste.length);
 
+        String vorname = liste[0];  //index - 1, wenn man den ersten haben möchte => 1 - 1 = 0
+        String nachname = liste[1];
+        System.out.println(vorname);
+        System.out.println(nachname);
+
+        //Aufgabe
+        String text = "Hallo Yuriy, heute ist ein schöner Tag, du bist schön.";
+        //Hallo Yuriy
+        //heute ist ein schöner Tag!
+        String[] liste2 = text.split(", ");
+        String t1 = liste2[0];
+        //String t2 = liste2[1].trim();
+        String t2 = liste2[1];
+        System.out.println(t1);
+        System.out.println(t2);
+
+        //unbekannte Anzahl von Trennungen
+        int i = 1;
+        for(String t : liste2) {
+            System.out.println(i + ": " + t);
+            i++;
+        }
+
+        //Aufgabe #2
+        String csv = "Yuriy;Beck;Am Wallgraben;9;52428;Juelich";
+        String[] csvListe = csv.split(";");
+        for(String c : csvListe) {
+            System.out.println(c);
+        }
+        String vorname1 = csvListe[0];
+        String nachname1 = csvListe[1];
+        String strasse = csvListe[2];
+        String nr = csvListe[3];
+        String plz = csvListe[4];
+        String stadt = csvListe[5];
+        System.out.println(vorname1 + " " + nachname1);
+        System.out.println(strasse + " " + nr);
+        System.out.println(plz + " " + stadt);
+
+        String name1 = String.join(" ", vorname1, nachname1);
+        System.out.println(name1);
+
+        String csv2 = String.join("\n\t", csvListe);
+        System.out.println(csv2);
+
+        String csv_new = csv.replace(";", " ");
+        System.out.println(csv_new);
+
+        String replaceText = "Ich wohne an der Straße Kürsten Flöhe 1 in Drämmen.";
+        System.out.println(replaceText);
+        //Sonderzeichen: ä,ö,ü,ß
+        String newText = replaceText.replace("ä", "ae");
+        newText = newText.replace("ö", "oe");
+        newText = newText.replace("ü", "ue");
+        newText = newText.replace("ß", "ss");
+        System.out.println(newText);
     }
 
     public static void strings() {
