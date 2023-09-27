@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -13,7 +14,22 @@ public class Main {
         //wecker(25, 67);
         //strings();
         //split();
-        templateApp();
+        //templateApp();
+        arrays();
+    }
+
+    public static void arrays() {
+        int[] arr = new int[10];
+        arr[0] = 1;
+        arr[1] = 2;
+        arr[2] = -1;    //kann als Platzhalter - "nicht belegt" markiert werden
+
+        System.out.println(arr);
+        System.out.println(Arrays.toString(arr));
+
+        for(int i: arr) {
+            System.out.println(i);
+        }
     }
 
     public static void templateApp() {
