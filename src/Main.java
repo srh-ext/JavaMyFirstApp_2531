@@ -11,7 +11,12 @@ public class Main {
         //vergleichsoperatoren();
         //logischeoperatoren();
         //wecker(25, 67);
-        strings();
+        //strings();
+        split();
+    }
+
+    public static void split() {
+
     }
 
     public static void strings() {
@@ -70,8 +75,6 @@ public class Main {
         } else {
             System.out.println("Sie haben nichts eingegeben!!!");
         }
-
-
 
     }
 
