@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
@@ -19,17 +21,137 @@ public class Main {
     }
 
     public static void arrays() {
-        int[] arr = new int[10];
+        int[] arr = new  int[10];
         arr[0] = 1;
         arr[1] = 2;
         arr[2] = -1;    //kann als Platzhalter - "nicht belegt" markiert werden
 
         System.out.println(arr);
         System.out.println(Arrays.toString(arr));
-
+        //FOR-EACH-LOOP #2
         for(int i: arr) {
             System.out.println(i);
         }
+        //initialisieren
+        int[] arr2 = {1,2,3,4,4,5,67,4673,56456,46,346,34634};
+        System.out.println(arr2.length);
+        int size = arr2.length-1;
+        System.out.println(arr2[size]);
+
+        //re-initialisieren
+        //Resizing #1
+        int[] arr3 = new int[arr2.length + 2];
+        //FOR-LOOP #1
+        for (int i = 0; i < arr2.length; i++) {
+            arr3[i] = arr2[i];
+        }
+        arr3[12] = 13;
+        arr3[13] = 14;
+        System.out.println(Arrays.toString(arr3));
+        //Resizing #2
+        int[] arr4 = new int[arr3.length + 1];
+        int i = 0;
+        for (int zahl : arr3) {
+            arr4[i] = zahl;
+            i++;
+        }
+        arr4[14] = 15;
+        System.out.println(Arrays.toString(arr4));
+        //Decrementieren
+        //Ergebnis: [1, 2, 3, 4, 4, 5, 67, 4673, 56456, 46, 346, 34634]
+        //Size zurücksetzen, verkleinern
+        //Lösung #1
+        int[] arr5 = arr2.clone();
+        System.out.println(Arrays.toString(arr5));
+        //Lösung #2
+        int[] arr55 = new int[arr2.length];
+        for(int j = 0; j < arr4.length - 3; j++) {
+            arr55[j] = arr4[j];
+        }
+        System.out.println(Arrays.toString(arr55));
+        //Lösung #3
+        int[] arr555 = Arrays.copyOfRange(arr4, 0, arr4.length - 3);
+        System.out.println(Arrays.toString(arr555));
+        System.out.println("===========================");
+        //clone vs copy
+        int[] arr6 = arr2;
+        int[] arr7 = arr2.clone();
+
+        arr2[0] = -1;
+
+        System.out.println(Arrays.toString(arr2));
+        System.out.println(Arrays.toString(arr6));
+        System.out.println(Arrays.toString(arr7));
+
+        System.out.println(arr2.hashCode());
+        System.out.println(arr6.hashCode());
+        System.out.println(arr7.hashCode());
+
+        int[] unsortet = {3,5,1,9,4,8};
+        Arrays.sort(unsortet);
+        System.out.println(Arrays.toString(unsortet));
+
+        char[] chUnsortet = {'b', 'z', 'a', 'i', 'm'};
+
+        // char => int => sort => int => char
+        Arrays.sort(chUnsortet);
+        System.out.println(Arrays.toString(chUnsortet));
+        System.out.println("===========================");
+        //Multidimensional Arrays
+        int[][] mArray = new int[10][5];
+        mArray[0][0] = 1;
+        System.out.println(Arrays.toString(mArray));
+        System.out.println(mArray[0][0]);
+
+        System.out.println("length dimension 1: "+ mArray.length);
+        System.out.println("length dimension 2: "+ mArray[0].length);
+
+        for(int j = 0; j < mArray.length; j++) {
+
+            for(int y = 0; y < mArray[0].length; y++) {
+
+                System.out.println(mArray[j][y]);
+            }
+        }
+
+        //Erstellen Sie ein Tabelle mit Spalten und Zeilen
+        //Zeile 1:      ID   VORNAME     NACHNAME
+        //Zeile 2-5:    1    Yuriy       Beck
+        //...
+        String[][] table = new String[5][3];
+        String[] zeile1 = {"ID", "VORNAME", "NACHNAME"};
+        String[] zeile2 = {"1", "Yu", "Be"};
+        String[] zeile3 = {"2", "Ge", "Ce"};
+        String[] zeile4 = {"3", "Pi", "Po"};
+        String[] zeile5 = {"4", "Da", "De"};
+        table[0] = zeile1;
+        table[1] = zeile2;
+        table[2] = zeile3;
+        table[3] = zeile4;
+        table[4] = zeile5;
+
+        //Schreibe einen Loop der die Tabelle ausliest
+        //in einem formattierten Zustand
+        //Zeile 1:      ID   VORNAME     NACHNAME
+        //Zeile 2-5:    1    Yuriy       Beck
+        for(String[] zeile: table) {
+            //System.out.println(Arrays.toString(zeile));
+            System.out.println(String.format("%s\t%s\t%s", zeile));
+            //System.out.println(String.format("%s\t%s\t%s", zeile[0], zeile[1], zeile[2]));
+        }
+        //eine Methode
+        String text = "";
+        for(String[] zeile: table) {
+            text += String.format("%s\t%s\t%s\n", zeile);
+        }
+
+        System.out.println(text);
+
+        ArrayList<String> list = new ArrayList<>();
+        list.add("sdafasdf");
+        list.remove("sadfasdfs");
+        list.size();
+        list.get(1);
     }
 
     public static void templateApp() {
