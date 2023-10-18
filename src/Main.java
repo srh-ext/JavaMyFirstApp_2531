@@ -24,8 +24,14 @@ public class Main {
         //#2 Befühle mit folgenden Zahlen
         //7, 3, 1, 5, 8, 10, 2, 4, 6, 9
         //#3 sortiere die Zahlen
+        /*
+        Sorting ArrayList in ascending Order
+        Collections.sort(list);
+         */
         //#4 Lösche die Zahl 10
         //#5 Lösche das letzte Element
+        //#6 Lösche das Element mit dem Value 5
+        //#7 Füge and der fünften Stelle die Zahl 5
     }
 
     public static void arrays() {
