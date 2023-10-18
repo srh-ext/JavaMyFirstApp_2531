@@ -1,8 +1,5 @@
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Main class
@@ -17,7 +14,18 @@ public class Main {
         //strings();
         //split();
         //templateApp();
-        arrays();
+        //arrays();
+        lists();
+    }
+
+    public static void lists() {
+        //#1 erstelle eine ArrayList
+        ArrayList<Integer> intList = new ArrayList<>()
+        //#2 Befühle mit folgenden Zahlen
+        //7, 3, 1, 5, 8, 10, 2, 4, 6, 9
+        //#3 sortiere die Zahlen
+        //#4 Lösche die Zahl 10
+        //#5 Lösche das letzte Element
     }
 
     public static void arrays() {
@@ -146,12 +154,6 @@ public class Main {
         }
 
         System.out.println(text);
-
-        ArrayList<String> list = new ArrayList<>();
-        list.add("sdafasdf");
-        list.remove("sadfasdfs");
-        list.size();
-        list.get(1);
     }
 
     public static void templateApp() {
