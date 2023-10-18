@@ -20,7 +20,7 @@ public class Main {
 
     public static void lists() {
         //#1 erstelle eine ArrayList
-        ArrayList<Integer> intList = new ArrayList<>()
+        ArrayList<Integer> intList = new ArrayList<>();
         //#2 Befühle mit folgenden Zahlen
         //7, 3, 1, 5, 8, 10, 2, 4, 6, 9
         //#3 sortiere die Zahlen
