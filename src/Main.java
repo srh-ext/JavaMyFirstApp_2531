@@ -23,15 +23,21 @@ public class Main {
         ArrayList<Integer> intList = new ArrayList<>();
         //#2 Befühle mit folgenden Zahlen
         //7, 3, 1, 5, 8, 10, 2, 4, 6, 9
+        System.out.println(Arrays.toString(intList.toArray()));
         //#3 sortiere die Zahlen
         /*
         Sorting ArrayList in ascending Order
         Collections.sort(list);
          */
+        System.out.println(Arrays.toString(intList.toArray()));
         //#4 Lösche die Zahl 10
+        System.out.println(Arrays.toString(intList.toArray()));
         //#5 Lösche das letzte Element
+        System.out.println(Arrays.toString(intList.toArray()));
         //#6 Lösche das Element mit dem Value 5
+        System.out.println(Arrays.toString(intList.toArray()));
         //#7 Füge and der fünften Stelle die Zahl 5
+        System.out.println(Arrays.toString(intList.toArray()));
     }
 
     public static void arrays() {
