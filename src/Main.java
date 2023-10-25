@@ -15,7 +15,114 @@ public class Main {
         //split();
         //templateApp();
         //arrays();
-        lists();
+        //lists();
+        //searchNumber();
+        //searchWord();
+        comparator();
+    }
+
+    public static void comparator() {
+        /*
+        TASK:
+        Using loop compare two lists and insert missing element to the second list.
+         */
+
+        ArrayList<String> list1 = new ArrayList<>(Arrays.asList("Ich", "liebe", "das", "Leben", "von", "heute"));
+        ArrayList<String> list2 = new ArrayList<>(Arrays.asList("Ich", "liebe", "das", "Leben"));
+
+        //Option #1
+        System.out.println("Option #1");
+        list2 = (ArrayList<String>)list1.clone();
+        System.out.println(Arrays.toString(list1.toArray()));
+        System.out.println(Arrays.toString(list2.toArray()));
+
+        //Option #2
+        System.out.println("Option #2");
+        list2 = new ArrayList<>(Arrays.asList("Ich", "liebe", "das", "Leben"));
+
+        for (int i = 0; i < list1.size(); i++) {
+            String element = list1.get(i);
+            if (!list2.contains(element)) {
+                list2.add(element);
+            }
+        }
+        System.out.println(Arrays.toString(list1.toArray()));
+        System.out.println(Arrays.toString(list2.toArray()));
+
+        //Option #3
+        System.out.println("Option #3");
+        list2 = new ArrayList<>();
+
+        for (int i = 0; i < list1.size(); i++) {
+            String element = list1.get(i);
+
+            int index = list2.indexOf(element);
+            if (index == -1) {
+                list2.add(element);
+            }
+        }
+        System.out.println(Arrays.toString(list1.toArray()));
+        System.out.println(Arrays.toString(list2.toArray()));
+
+
+        //Task: Outsorting
+        /*
+        Print only words which are unique.
+        Create a new List for outsorted words.
+         */
+        System.out.println("Outsorting");
+        list2 = new ArrayList<>(Arrays.asList("liebe", "das", "Leben"));
+        ArrayList<String> list3 = new ArrayList<>();
+
+        for (int i = 0; i < list1.size(); i++) {
+            String element = list1.get(i);
+            if (!list2.contains(element)) {
+                list3.add(element);
+            }
+        }
+        System.out.println(Arrays.toString(list3.toArray()));
+    }
+
+    public static void searchWord() {
+        String gesuchtesWort = "liebe";
+        ArrayList<String> list = new ArrayList<>(Arrays.asList("Ich", "liebe", "das", "Leben"));
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).equals(gesuchtesWort)) {
+                System.out.println("Index: " + i);
+                System.out.println("Index: " + list.get(i));
+                System.out.println("Index: " + list.indexOf(gesuchtesWort));
+                break;
+            }
+        }
+    }
+
+    public static void searchNumber() {
+        int gesuchteZahl = 99;
+        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(7, 3, 1, 5, 8, 10, 2, 4, 6, 9));
+        //7, 3, 1, 5, 8, 10, 2, 4, 6, 9
+        //find the searching number, by using of the loop function.
+        // if the number exists please print the number and the index.
+        //Option #1 without loop
+        int index = list.indexOf(gesuchteZahl);
+        System.out.println("Index: " + index);
+        //Option #2 - for loop
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) == gesuchteZahl) {
+                System.out.println("Index: " + i);
+                break;
+            }
+        }
+        //Option #3 - for-each loop
+        int index2 = -1;
+        for (Integer i2 : list) {
+            index2++;
+            if (i2 == gesuchteZahl) {
+                System.out.println("Index: " + index2);
+                System.out.println("Index: " + list.indexOf(gesuchteZahl));
+            }
+        }
+        System.out.println("Index: " + index2);
+        System.out.println(list.get(index2));
     }
 
     public static void lists() {
@@ -23,12 +130,14 @@ public class Main {
         ArrayList<Integer> intList = new ArrayList<>();
         //#2 Befühle mit folgenden Zahlen
         //7, 3, 1, 5, 8, 10, 2, 4, 6, 9
+        intList.add(7);
+        intList.add(1);
         System.out.println(Arrays.toString(intList.toArray()));
         //#3 sortiere die Zahlen
         /*
         Sorting ArrayList in ascending Order
         Collections.sort(list);
-         */
+        */
         System.out.println(Arrays.toString(intList.toArray()));
         //#4 Lösche die Zahl 10
         System.out.println(Arrays.toString(intList.toArray()));
