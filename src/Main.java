@@ -18,7 +18,83 @@ public class Main {
         //lists();
         //searchNumber();
         //searchWord();
-        comparator();
+        //comparator();
+        //sets();
+        //maps();
+        mapping();
+    }
+
+    public static void mapping() {
+        int[] zahlen = {1, 2, 3, 4, 5, 4, 4, 1, 0, 3};
+        //Step #1 identifiziere die Keys
+        HashSet<Integer> set = new HashSet<>();
+        for (int z: zahlen) {
+            set.add(z);
+        }
+        System.out.println(set.toString());
+
+        HashMap<Integer, Integer> counter = new HashMap<>();
+        for (Integer n: set) {
+            counter.put(n, 0);
+        }
+        System.out.println(counter.toString());
+
+        for (Integer key: counter.keySet()) {
+
+            int count = 0;
+            for (int z: zahlen) {
+                if (z == key) {
+                    count++;
+                }
+            }
+            counter.replace(key, count);
+        }
+
+        System.out.println(counter);
+
+        //0 = 1 null kommt ein mal in der Liste vor
+        //1 = 2
+        //2 = 1
+        //3 = 2
+        //4 = 3
+        //5 = 1
+    }
+
+    public static void maps() {
+        HashMap<Integer, String> map = new HashMap<>();
+        map.put(1, "Adam");
+        map.put(2, "Sascha");
+        map.put(3, "Sebastian");
+
+        System.out.println(map.toString());
+    }
+
+    public static void sets() {
+
+        HashSet<String> set = new HashSet<>();
+        set.add("Yuriy");
+        set.add("Sebastian");
+        set.add("Adam");
+        set.add("Sebastian");
+        set.add("Sascha");
+
+        for (String s: set) {
+            System.out.println(s.hashCode());
+        }
+
+        System.out.println(set.toString());
+
+        HashSet<Integer> nums = new HashSet<>();
+        nums.add(2);
+        nums.add(1);
+        nums.add(3);
+        nums.add(0);
+        nums.add(1);
+        System.out.println(nums.toString());
+
+        for (Integer n: nums) {
+            System.out.println(n);
+        }
     }
 
     public static void comparator() {
